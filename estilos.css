@@ -1,0 +1,321 @@
+/* =============================================================
+   Registro de Carreras · estilos.css
+   ============================================================= */
+
+/* ---------- Variables y base ---------- */
+:root {
+    --asfalto: #111827;
+    --asfalto-claro: #1f2937;
+    --gris: #f3f4f6;
+    --borde: #e5e7eb;
+    --rojo: #e10600;
+    --amarillo: #facc15;
+    --azul: #0ea5e9;
+    --verde: #16a34a;
+    --texto: #1f2937;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--gris);
+    color: var(--texto);
+    line-height: 1.5;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+    background-color: var(--asfalto);
+    background-image: linear-gradient(120deg, #111827 0%, #1f2937 65%, #3b0d0c 100%);
+    color: #fff;
+    text-align: center;
+    padding: 32px 16px;
+    border-bottom: 4px solid var(--rojo);
+    margin-bottom: 24px;
+}
+
+.encabezado h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.encabezado p {
+    margin: 6px 0 0;
+    color: #d1d5db;
+}
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(17, 24, 39, 0.08);
+    padding: 22px 24px;
+    margin-bottom: 24px;
+}
+
+.tarjeta h2 {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+}
+
+/* ---------- Formulario ---------- */
+#formCarrera {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 18px;
+}
+
+.campo-ancho {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 9px 11px;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: 2px solid var(--azul);
+    border-color: var(--azul);
+}
+
+/* Campo con error: borde rojo */
+.campo .invalido {
+    border-color: var(--rojo);
+    background-color: #fef2f2;
+}
+
+.error {
+    display: block;
+    min-height: 1.1em;
+    color: var(--rojo);
+    font-size: 0.85rem;
+    margin-top: 3px;
+}
+
+.boton {
+    align-self: end;
+    padding: 11px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: #fff;
+    background-color: var(--rojo);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 18px;
+}
+
+.boton:hover {
+    background-color: #b30500;
+}
+
+.boton-secundario {
+    background-color: var(--asfalto-claro);
+    margin: 16px 0 0;
+}
+
+.boton-secundario:hover {
+    background-color: var(--asfalto);
+}
+
+.mensaje {
+    margin: 4px 0 0;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+}
+
+/* ---------- Resumen ---------- */
+.resumen {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.dato {
+    flex: 1;
+    background-color: var(--asfalto);
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    border-top: 4px solid var(--amarillo);
+}
+
+.dato span {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--amarillo);
+    overflow-wrap: anywhere;
+}
+
+.dato small {
+    color: #d1d5db;
+}
+
+/* ---------- Barra de búsqueda y filtros ---------- */
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.barra h2 {
+    margin: 0;
+}
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filtros input,
+.filtros select {
+    padding: 8px 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.filtros input {
+    min-width: 230px;
+}
+
+/* ---------- Lista de registros ---------- */
+.lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.registro {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.info small {
+    color: #6b7280;
+}
+
+.etiqueta {
+    flex: 0 0 72px;
+    text-align: center;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.etiqueta-f1     { background-color: var(--rojo); }
+.etiqueta-motogp { background-color: var(--azul); }
+.etiqueta-wec    { background-color: var(--verde); }
+
+.nota {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--asfalto);
+}
+
+.eliminar {
+    background: none;
+    border: 1px solid #fca5a5;
+    color: var(--rojo);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.eliminar:hover {
+    background-color: var(--rojo);
+    color: #fff;
+}
+
+.vacio {
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* ---------- Pie ---------- */
+.pie {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b7280;
+    padding: 8px 16px 28px;
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 640px) {
+    #formCarrera {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen {
+        flex-direction: column;
+    }
+
+    .filtros,
+    .filtros input,
+    .filtros select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .registro {
+        flex-wrap: wrap;
+    }
+
+    .info {
+        flex-basis: calc(100% - 90px);
+    }
+}

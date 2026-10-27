@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Carreras | F1, MotoGP y WEC</title>
+    <link rel="stylesheet" href="estilos.css">
+    <!-- defer: el script se ejecuta cuando el HTML ya terminó de cargar -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>🏁 Registro de Carreras</h1>
+        <p>Anota las carreras de F1, MotoGP y WEC que has visto y califícalas.</p>
+    </header>
+
+    <main class="contenedor">
+
+        <!-- ===== FORMULARIO ===== -->
+        <section class="tarjeta">
+            <h2>Agregar carrera</h2>
+
+            <!-- novalidate: la validación la hace JavaScript, no el navegador -->
+            <form id="formCarrera" novalidate>
+                <div class="campo campo-ancho">
+                    <label for="nombre">Nombre de la carrera</label>
+                    <input type="text" id="nombre" placeholder="Ej.: Gran Premio de Singapur">
+                    <small class="error" id="errorNombre"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria">
+                        <option value="">-- Seleccione --</option>
+                        <option value="F1">Fórmula 1</option>
+                        <option value="MotoGP">MotoGP</option>
+                        <option value="WEC">WEC</option>
+                    </select>
+                    <small class="error" id="errorCategoria"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha">
+                    <small class="error" id="errorFecha"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="ganador">Ganador</label>
+                    <input type="text" id="ganador" placeholder="Ej.: Max Verstappen">
+                    <small class="error" id="errorGanador"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="calificacion">Calificación (1 a 10)</label>
+                    <input type="number" id="calificacion" min="1" max="10" step="1" placeholder="1 – 10">
+                    <small class="error" id="errorCalificacion"></small>
+                </div>
+
+                <button type="submit" class="boton">Guardar carrera</button>
+            </form>
+
+            <!-- Mensaje de confirmación -->
+            <p id="mensaje" class="mensaje" hidden></p>
+        </section>
+
+        <!-- ===== RESUMEN ===== -->
+        <section class="resumen">
+            <div class="dato">
+                <span id="totalCarreras">0</span>
+                <small>carreras registradas</small>
+            </div>
+            <div class="dato">
+                <span id="promedio">–</span>
+                <small>calificación promedio</small>
+            </div>
+            <div class="dato">
+                <span id="mejorCarrera">–</span>
+                <small>mejor calificada</small>
+            </div>
+        </section>
+
+        <!-- ===== LISTA DE REGISTROS ===== -->
+        <section class="tarjeta">
+            <div class="barra">
+                <h2>Mis carreras</h2>
+                <div class="filtros">
+                    <input type="search" id="buscar" placeholder="Buscar por carrera o ganador…" aria-label="Buscar">
+                    <select id="filtroCategoria" aria-label="Filtrar por categoría">
+                        <option value="Todas">Todas</option>
+                        <option value="F1">Fórmula 1</option>
+                        <option value="MotoGP">MotoGP</option>
+                        <option value="WEC">WEC</option>
+                    </select>
+                </div>
+            </div>
+
+            <p id="vacio" class="vacio">Todavía no hay carreras registradas.</p>
+            <ul id="lista" class="lista"></ul>
+
+            <button type="button" id="borrarTodo" class="boton boton-secundario">Borrar todas</button>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        Programación Web · Tarea: interacción del lado del cliente · Kenneth Rodríguez Cerdas
+    </footer>
+
+</body>
+</html>
